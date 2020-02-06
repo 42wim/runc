@@ -475,7 +475,7 @@ func isNoChildren(err error) bool {
 func signalAllProcesses(m cgroups.Manager, s os.Signal) error {
 	var procs []*os.Process
 	if err := m.Freeze(configs.Frozen); err != nil {
-		logrus.Warn(err)
+		//logrus.Warn(err)
 	}
 	pids, err := m.GetAllPids()
 	if err != nil {
@@ -494,7 +494,7 @@ func signalAllProcesses(m cgroups.Manager, s os.Signal) error {
 		}
 	}
 	if err := m.Freeze(configs.Thawed); err != nil {
-		logrus.Warn(err)
+		//logrus.Warn(err)
 	}
 
 	subreaper, err := system.GetSubreaper()
